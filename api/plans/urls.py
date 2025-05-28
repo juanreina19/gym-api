@@ -1,5 +1,4 @@
 from django.urls import path
-from .views import plans
 from rest_framework import routers
 from .api import PlanViewSet
 
