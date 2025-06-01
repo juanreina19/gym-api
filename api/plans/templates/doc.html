@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Documentación API - Gym</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #2c3e50;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow: auto;
+        }
+
+        code {
+            color: #c7254e;
+        }
+
+        .endpoint {
+            border-left: 4px solid #2980b9;
+            padding-left: 15px;
+            margin-bottom: 30px;
+            background-color: #fff;
+            padding: 15px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .method {
+            font-weight: bold;
+            color: #27ae60;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>📘 Documentación de la API - Gestión de Planes (Gym)</h1>
+    <p><strong>Base path:</strong> <code>/api/plans</code></p>
+
+    <div class="endpoint">
+        <h2>📄 Listar todos los planes</h2>
+        <p><span class="method">GET</span> <code>/plans/</code></p>
+        <p>Devuelve una lista con todos los planes disponibles.</p>
+        <h4>Respuesta de ejemplo:</h4>
+        <pre><code>[
+  {
+    "id": "1",
+    "nombre": "Plan Básico",
+    "descripcion": "Acceso al gimnasio sin clases.",
+    "precio": 100000,
+    "duracion_dias": 30,
+    "acceso_piscina": false,
+    "acceso_clases_grupales": false,
+    "acceso_personal_trainer": false
+  }
+]</code></pre>
+    </div>
+
+    <div class="endpoint">
+        <h2>🔍 Obtener plan por ID</h2>
+        <p><span class="method">GET</span> <code>/plans/{id}/</code></p>
+        <p>Devuelve un plan específico según su ID.</p>
+        <h4>Respuesta de ejemplo:</h4>
+        <pre><code>{
+  "id": "1",
+  "nombre": "Plan Básico",
+  "descripcion": "Acceso al gimnasio sin clases.",
+  "precio": 100000,
+  "duracion_dias": 30,
+  "acceso_piscina": false,
+  "acceso_clases_grupales": false,
+  "acceso_personal_trainer": false
+}</code></pre>
+    </div>
+
+    <div class="endpoint">
+        <h2>🆕 Crear nuevo plan</h2>
+        <p><span class="method">POST</span> <code>/plans/</code></p>
+        <p>Crea un nuevo plan en el sistema.</p>
+        <h4>Cuerpo del request:</h4>
+        <pre><code>{
+  "nombre": "Plan Premium",
+  "descripcion": "Acceso completo al gimnasio con piscina y clases.",
+  "precio": 200000,
+  "duracion_dias": 30,
+  "acceso_piscina": true,
+  "acceso_clases_grupales": true,
+  "acceso_personal_trainer": true
+}</code></pre>
+        <h4>Respuesta esperada:</h4>
+        <pre><code>{
+  "id": "2",
+  "nombre": "Plan Premium",
+  "descripcion": "Acceso completo al gimnasio con piscina y clases.",
+  "precio": 200000,
+  "duracion_dias": 30,
+  "acceso_piscina": true,
+  "acceso_clases_grupales": true,
+  "acceso_personal_trainer": true
+}</code></pre>
+    </div>
+
+    <div class="endpoint">
+        <h2>✏️ Actualizar plan existente</h2>
+        <p><span class="method">PUT</span> <code>/plans/{id}/</code></p>
+        <p>Actualiza la información de un plan existente.</p>
+        <h4>Cuerpo del request:</h4>
+        <pre><code>{
+  "nombre": "Plan Avanzado",
+  "descripcion": "Acceso al gimnasio y clases grupales.",
+  "precio": 150000,
+  "duracion_dias": 30,
+  "acceso_piscina": false,
+  "acceso_clases_grupales": true,
+  "acceso_personal_trainer": false
+}</code></pre>
+        <h4>Respuesta esperada:</h4>
+        <pre><code>{
+  "id": "1",
+  "nombre": "Plan Avanzado",
+  "descripcion": "Acceso al gimnasio y clases grupales.",
+  "precio": 150000,
+  "duracion_dias": 30,
+  "acceso_piscina": false,
+  "acceso_clases_grupales": true,
+  "acceso_personal_trainer": false
+}</code></pre>
+    </div>
+
+    <div class="endpoint">
+        <h2>🗑️ Eliminar plan</h2>
+        <p><span class="method">DELETE</span> <code>/plans/{id}/</code></p>
+        <p>Elimina un plan del sistema.</p>
+        <h4>Respuesta esperada:</h4>
+        <pre><code>{
+  "message": "Plan eliminado exitosamente."
+}</code></pre>
+    </div>
+
+    <hr>
+    <h3>📌 Modelo de Plan</h3>
+    <pre><code>{
+  "id": "string",
+  "nombre": "string",
+  "descripcion": "string",
+  "precio": 0,
+  "duracion_dias": 0,
+  "acceso_piscina": true,
+  "acceso_clases_grupales": true,
+  "acceso_personal_trainer": false
+}</code></pre>
+
+    <h1>Integrantes:</h1>
+    <li>
+        Juan David Reina Mosquera
+    </li>
+    <li>
+        Sebastian Banderas Torres
+    </li>
+    <li>
+        Miguel Angel Lema
+    </li>
+</body>
+
+</html>

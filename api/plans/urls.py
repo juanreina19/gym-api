@@ -7,6 +7,7 @@ router = routers.DefaultRouter()
 router.register(r'plans', views.PlanViewSet, 'plans')
 
 urlpatterns = [
-    path('api/v1/', include(router.urls)),
-    
+    path('api/', include(router.urls)),
+    path('docs/', views.documentation, name='docs'),
+    path('', views.redirect_to_docs)
 ]
