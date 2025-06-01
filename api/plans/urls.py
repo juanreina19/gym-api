@@ -1,8 +1,12 @@
 # from django.urls import path
 from rest_framework import routers
-from .api import PlanViewSet
+from plans import views
+from django.urls import path, include
 
 router = routers.DefaultRouter()
-router.register('api/plans', PlanViewSet, 'plans')
+router.register(r'plans', views.PlanViewSet, 'plans')
 
-urlpatterns = router.urls
+urlpatterns = [
+    path('api/v1/', include(router.urls)),
+    
+]
